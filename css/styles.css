@@ -1,0 +1,2712 @@
+/* ============================================
+   BCOE Sports Registration System - Styles
+   Premium Design with Navy Blue, White & Gold
+   ============================================ */
+
+/* ====== CSS Variables ====== */
+:root {
+  /* Colors */
+  --color-navy: #0a1929;
+  --color-navy-light: #1a2332;
+  --color-navy-lighter: #2a3342;
+  --color-white: #ffffff;
+  --color-gold: #ffd700;
+  --color-gold-dark: #ffc700;
+  --color-gold-light: #ffe566;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #0a1929 0%, #1a2f45 100%);
+  --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ffc700 100%);
+  --gradient-overlay: linear-gradient(
+    180deg,
+    rgba(10, 25, 41, 0.95) 0%,
+    rgba(10, 25, 41, 0.85) 100%
+  );
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.25);
+  --shadow-gold: 0 4px 20px rgba(255, 215, 0, 0.3);
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Typography */
+  --font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ====== Global Resets ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background: linear-gradient(to bottom, #f5f7fa 0%, #e8ecf1 100%);
+  color: var(--color-navy);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ====== Header ====== */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--gradient-primary);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  border-bottom: 3px solid var(--color-gold);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  padding: 0.5rem;
+  box-shadow: var(--shadow-gold);
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.header-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.header-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.registration-counter {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.counter-label {
+  font-size: 0.75rem;
+  color: var(--color-gold-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.counter-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+/* ====== Main Content ====== */
+.main-content {
+  margin-top: 110px;
+  min-height: calc(100vh - 110px);
+  padding-bottom: 4rem;
+}
+
+/* ====== Hero Section ====== */
+.hero-section {
+  background: var(--gradient-primary);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 215, 0, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(255, 215, 0, 0.1) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: var(--color-gold-light);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* ====== Dashboard ====== */
+.dashboard {
+  padding: 3rem 2rem;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ====== Gender Tabs ====== */
+.gender-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.gender-tab {
+  background: var(--color-white);
+  border: 2px solid transparent;
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-lg);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.gender-tab:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-gold);
+}
+
+.gender-tab.active {
+  background: var(--gradient-gold);
+  color: var(--color-navy);
+  box-shadow: var(--shadow-gold);
+  border-color: var(--color-gold-dark);
+}
+
+.tab-icon {
+  font-size: 1.5rem;
+}
+
+/* ====== Filters ====== */
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: var(--color-white);
+  border: 2px solid #e0e4e8;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-btn.active {
+  background: var(--color-navy);
+  color: var(--color-gold);
+  border-color: var(--color-navy);
+  box-shadow: var(--shadow-md);
+}
+
+.filter-icon {
+  font-size: 1.2rem;
+}
+
+/* ====== Category Section ====== */
+.category-section {
+  margin-bottom: 3rem;
+}
+
+.category-header {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.category-icon {
+  font-size: 2rem;
+}
+
+/* ====== Sports Grid ====== */
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ====== Sport Card ====== */
+.sport-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.sport-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-gold);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+}
+
+.sport-card:hover::before {
+  transform: scaleX(1);
+}
+
+.sport-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-gold);
+}
+
+.sport-card-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.sport-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.sport-card-details {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid #e0e4e8;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.sport-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-navy-light);
+  font-weight: 500;
+}
+
+.detail-icon {
+  font-size: 1.2rem;
+}
+
+.registration-badge {
+  background: var(--gradient-gold);
+  color: var(--color-navy);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.card-hover-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--gradient-primary);
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform var(--transition-base);
+}
+
+.sport-card:hover .card-hover-effect {
+  transform: translateY(0);
+}
+
+.register-text {
+  color: var(--color-gold);
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  display: block;
+}
+
+/* ====== Animations ====== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== Modal ====== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 25, 41, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  position: relative;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-xl);
+  animation: modalSlideIn 0.4s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--color-navy);
+  color: var(--color-gold);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: var(--color-gold);
+  color: var(--color-navy);
+  transform: rotate(90deg);
+}
+
+/* ====== Form Styles ====== */
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+.form-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  color: var(--color-navy-light);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group.half-width {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--color-navy);
+  font-size: 0.95rem;
+}
+
+.section-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-count-badge {
+  background: var(--color-gold);
+  color: var(--color-navy);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.required {
+  color: #e53e3e;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.875rem 1rem;
+  border: 2px solid #e0e4e8;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: var(--font-family);
+  transition: all var(--transition-fast);
+  background: var(--color-white);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15);
+}
+
+.input-hint {
+  font-size: 0.85rem;
+  color: var(--color-navy-light);
+  font-style: italic;
+}
+
+/* Players Container */
+.players-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 2px dashed #e0e4e8;
+}
+
+.player-input-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.player-number {
+  background: var(--color-navy);
+  color: var(--color-gold);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.player-input {
+  flex: 1;
+}
+
+/* Captain Section */
+.captain-section {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Form Error */
+.form-error {
+  background: #fee;
+  border: 2px solid #e53e3e;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  color: #c53030;
+  font-size: 0.9rem;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: var(--gradient-gold);
+  color: var(--color-navy);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-lg);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-gold);
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 1.3rem;
+  transition: transform var(--transition-base);
+}
+
+.submit-btn:hover .btn-icon {
+  transform: translateX(5px);
+}
+
+/* Success Message */
+.success-message {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin: 0 auto 1.5rem;
+  color: var(--color-navy);
+  font-weight: bold;
+  animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success-message h3 {
+  font-size: 1.8rem;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+}
+
+.success-message p {
+  font-size: 1.1rem;
+  color: var(--color-navy-light);
+  margin-bottom: 0.5rem;
+}
+
+.success-message small {
+  font-size: 1rem;
+  color: var(--color-gold-dark);
+}
+
+/* ====== Footer ====== */
+.main-footer {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.footer-note {
+  color: var(--color-gold-light);
+  font-size: 0.9rem;
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 1rem 1.5rem;
+  }
+
+  .header-title {
+    font-size: 1.2rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .sports-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .header-left {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .header-title {
+    font-size: 1.1rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .header-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .main-content {
+    margin-top: 200px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .gender-tabs {
+    flex-direction: column;
+  }
+
+  .gender-tab {
+    justify-content: center;
+  }
+
+  .sports-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .captain-section {
+    flex-direction: column;
+  }
+
+  .form-group.half-width {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .modal {
+    padding: 1rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .dashboard {
+    padding: 2rem 1rem;
+  }
+}
+
+/* ====== Print Styles ====== */
+@media print {
+  .main-header,
+  .filters,
+  .gender-tabs,
+  .modal,
+  .main-footer {
+    display: none;
+  }
+
+  .main-content {
+    margin-top: 0;
+  }
+}
+
+/* ============================================
+   MULTI-SPORT REGISTRATION STYLES
+   Added for fee-based multi-sport selection
+   ============================================ */
+
+/* ====== Registration Section ====== */
+.registration-section {
+  padding: 2rem;
+}
+
+/* Gender Selection */
+.gender-selection {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.gender-tabs {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.gender-option {
+  cursor: pointer;
+}
+
+.gender-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gender-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 2.5rem;
+  background: var(--color-white);
+  border: 3px solid #e0e4e8;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.gender-option input:checked + .gender-label {
+  background: var(--gradient-gold);
+  border-color: var(--color-gold-dark);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.gender-option:hover .gender-label {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.gender-icon {
+  font-size: 2rem;
+}
+
+.gender-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+/* Sports Category Sections */
+.sports-category {
+  margin-bottom: 3rem;
+}
+
+.category-header {
+  margin-bottom: 1.5rem;
+}
+
+.category-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.category-icon {
+  font-size: 2rem;
+}
+
+/* Sports List (Checkboxes) */
+.sports-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+/* Sport Checkbox */
+.sport-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  background: var(--color-white);
+  border: 2px solid #e0e4e8;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.sport-checkbox:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.sport-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkbox-custom {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #e0e4e8;
+  border-radius: 6px;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+}
+
+.sport-checkbox input:checked ~ .checkbox-custom {
+  background: var(--gradient-gold);
+  border-color: var(--color-gold-dark);
+}
+
+.sport-checkbox input:checked ~ .checkbox-custom::after {
+  content: "✓";
+  color: var(--color-navy);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.sport-checkbox input:checked ~ .sport-details {
+  color: var(--color-navy);
+}
+
+.sport-checkbox:has(input:checked) {
+  border-color: var(--color-gold);
+  background: rgba(255, 215, 0, 0.05);
+  box-shadow: var(--shadow-gold);
+}
+
+.sport-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.sport-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.sport-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sport-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.sport-type {
+  font-size: 0.85rem;
+  color: var(--color-navy-light);
+  font-weight: 500;
+}
+
+.sport-fee {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-gold-dark);
+  flex-shrink: 0;
+}
+
+/* Fee Summary */
+.fee-summary {
+  position: sticky;
+  bottom: 2rem;
+  background: var(--gradient-primary);
+  border: 3px solid var(--color-gold);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow-xl);
+  margin-top: 3rem;
+  transition: all var(--transition-base);
+  opacity: 0.6;
+}
+
+.fee-summary.has-selection {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.fee-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.fee-info {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.fee-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fee-label {
+  color: var(--color-gold-light);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.fee-value {
+  color: var(--color-white);
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.total-fee .fee-value {
+  color: var(--color-gold);
+  font-size: 2.5rem;
+}
+
+.proceed-btn {
+  background: var(--gradient-gold);
+  color: var(--color-navy);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-lg);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+}
+
+.proceed-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.proceed-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Registration Form Container */
+.registration-form-container {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  box-shadow: var(--shadow-lg);
+  margin-top: 2rem;
+}
+
+.main-registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.form-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 2px solid #e0e4e8;
+}
+
+.form-section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+/* Selected Sports Summary */
+.selected-sports-summary h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+}
+
+.selected-sport-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--color-white);
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.75rem;
+}
+
+.selected-sport-item .sport-icon {
+  font-size: 1.5rem;
+}
+
+.selected-sport-item .sport-name {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.selected-sport-item .sport-fee {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-gold-dark);
+}
+
+/* Sport Players Section */
+.sport-players-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.sport-players-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.sport-section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.players-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+/* Captain Selection */
+.captain-selection {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.back-btn {
+  background: var(--color-white);
+  color: var(--color-navy);
+  border: 2px solid var(--color-navy);
+  padding: 1rem 2rem;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.back-btn:hover {
+  background: var(--color-navy);
+  color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.submit-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-fee {
+  background: rgba(10, 25, 41, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+}
+
+/* Success Modal Enhancements */
+.success-details {
+  background: #f8f9fa;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.success-detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detail-label {
+  font-size: 0.9rem;
+  color: var(--color-navy-light);
+  font-weight: 600;
+}
+
+.detail-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-gold-dark);
+}
+
+.success-note {
+  background: rgba(255, 215, 0, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-gold);
+  color: var(--color-navy);
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* Responsive Updates */
+@media (max-width: 768px) {
+  .sports-list {
+    grid-template-columns: 1fr;
+  }
+
+  .fee-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .fee-info {
+    gap: 1.5rem;
+  }
+
+  .proceed-btn {
+    width: 100%;
+  }
+
+  .registration-form-container {
+    padding: 1.5rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .back-btn,
+  .submit-btn {
+    width: 100%;
+  }
+
+  .players-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .captain-selection {
+    flex-direction: column;
+  }
+
+  .form-group.half-width {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gender-tabs {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .gender-label {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .fee-value {
+    font-size: 1.5rem;
+  }
+
+  .total-fee .fee-value {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   SINGLE-SPORT REGISTRATION WITH PAYMENT
+   Updated styles for radio buttons and payment flow
+   ============================================ */
+
+/* Remove old checkbox styles, add radio styles */
+.sport-radio {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  background: var(--color-white);
+  border: 2px solid #e0e4e8;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.sport-radio:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.sport-radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radio-custom {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #e0e4e8;
+  border-radius: 50%;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  position: relative;
+}
+
+.sport-radio input:checked ~ .radio-custom {
+  border-color: var(--color-gold-dark);
+  background: var(--gradient-gold);
+}
+
+.sport-radio input:checked ~ .radio-custom::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: var(--color-navy);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.sport-radio:has(input:checked) {
+  border-color: var(--color-gold);
+  background: rgba(255, 215, 0, 0.05);
+  box-shadow: var(--shadow-gold);
+}
+
+/* Entry Fee Display */
+.entry-fee-display {
+  background: var(--gradient-primary);
+  border: 3px solid var(--color-gold);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: var(--shadow-xl);
+}
+
+.entry-fee-display .fee-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.entry-fee-display .fee-info {
+  flex: 1;
+}
+
+.entry-fee-display .fee-label {
+  color: var(--color-gold-light);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.selected-sport-name {
+  color: var(--color-white);
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.entry-fee-display .fee-amount {
+  text-align: right;
+}
+
+.entry-fee-display .fee-value {
+  color: var(--color-gold);
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.proceed-payment-btn {
+  background: var(--gradient-gold);
+  color: var(--color-navy);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-lg);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+}
+
+.proceed-payment-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Payment Section */
+.payment-section {
+  margin-top: 2rem;
+}
+
+.payment-container {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid #e0e4e8;
+}
+
+.payment-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.payment-summary {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-gold);
+  margin-bottom: 2rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row.total {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--color-gold);
+  border-bottom: none;
+}
+
+.summary-label {
+  color: var(--color-navy-light);
+  font-weight: 600;
+}
+
+.summary-value {
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.summary-row.total .summary-value {
+  color: var(--color-gold-dark);
+  font-size: 1.5rem;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.payment-instructions {
+  background: rgba(255, 215, 0, 0.1);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-gold);
+}
+
+.payment-instructions p {
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 0.5rem;
+}
+
+.payment-instructions ol {
+  margin-left: 1.5rem;
+  color: var(--color-navy-light);
+}
+
+.payment-instructions li {
+  margin-bottom: 0.25rem;
+}
+
+.payment-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.confirm-payment-btn {
+  flex: 1;
+  background: var(--gradient-gold);
+  color: var(--color-navy);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-lg);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+}
+
+.confirm-payment-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Registration Summary in Form */
+.registration-summary {
+  margin-bottom: 2rem;
+}
+
+.registration-summary h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+}
+
+.summary-card {
+  background: #f8f9fa;
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e4e8;
+  margin-bottom: 1rem;
+}
+
+.summary-icon {
+  font-size: 2.5rem;
+}
+
+.summary-details {
+  flex: 1;
+}
+
+.summary-sport-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 0.25rem;
+}
+
+.summary-sport-info {
+  font-size: 0.9rem;
+  color: var(--color-navy-light);
+  font-weight: 500;
+}
+
+.summary-fee {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-gold-dark);
+}
+
+.summary-payment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-navy-light);
+  font-size: 0.9rem;
+}
+
+.summary-payment strong {
+  color: var(--color-navy);
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+/* Success Note */
+.success-note {
+  background: rgba(255, 215, 0, 0.1);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-gold);
+  color: var(--color-navy);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* Responsive Updates for Payment */
+@media (max-width: 768px) {
+  .entry-fee-display .fee-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .entry-fee-display .fee-amount {
+    text-align: left;
+  }
+
+  .proceed-payment-btn,
+  .confirm-payment-btn {
+    width: 100%;
+  }
+
+  .payment-container {
+    padding: 1.5rem;
+  }
+
+  .payment-actions {
+    flex-direction: column;
+  }
+
+  .payment-actions .back-btn {
+    width: 100%;
+  }
+
+  .summary-item {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .entry-fee-display {
+    padding: 1.5rem;
+  }
+
+  .selected-sport-name {
+    font-size: 1.5rem;
+  }
+
+  .entry-fee-display .fee-value {
+    font-size: 2rem;
+  }
+
+  .payment-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============================================
+   STEP-BASED REGISTRATION FLOW
+   Progress indicator and step management
+   ============================================ */
+
+/* Progress Steps Indicator */
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.progress-steps .step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Connector line between steps */
+.progress-steps .step::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 100%;
+  height: 3px;
+  background: #e0e4e8;
+  z-index: -1;
+}
+
+.progress-steps .step:last-child::before {
+  display: none;
+}
+
+.progress-steps .step.completed::before {
+  background: var(--color-success);
+}
+
+/* Step number circle */
+.step-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e0e4e8;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.step.active .step-number {
+  background: var(--gradient-gold);
+  color: var(--color-navy);
+  border-color: var(--color-gold-dark);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-gold);
+}
+
+.step.completed .step-number {
+  background: var(--color-success);
+  color: white;
+  border-color: var(--color-success);
+}
+
+.step.completed .step-number::after {
+  content: "✓";
+  font-size: 1.2rem;
+}
+
+/* Hide number when completed */
+.step.completed .step-number {
+  font-size: 0;
+}
+
+/* Step label */
+.step-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #999;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.step.active .step-label {
+  color: var(--color-gold-dark);
+  font-size: 0.95rem;
+}
+
+.step.completed .step-label {
+  color: var(--color-success);
+}
+
+/* Step Content Areas */
+.step-content {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+}
+
+.step-heading {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Step Actions (Navigation Buttons) */
+.step-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.step-actions .back-btn {
+  flex: 0 0 auto;
+  background: transparent;
+  color: var(--color-navy-light);
+  border: 2px solid #e0e4e8;
+  padding: 0.9rem 1.8rem;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.step-actions .back-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold-dark);
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.step-actions .next-btn {
+  flex: 1;
+  background: var(--gradient-gold);
+  color: var(--color-navy);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-lg);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+}
+
+.step-actions .next-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.step-actions .next-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Selected Sport Display */
+.selected-sport-display {
+  background: var(--gradient-primary);
+  border: 3px solid var(--color-gold);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.sport-summary {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sport-icon-large {
+  font-size: 3rem;
+}
+
+.sport-summary .sport-info {
+  flex: 1;
+}
+
+.sport-summary .sport-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 0.25rem;
+}
+
+.sport-summary .sport-meta {
+  font-size: 0.9rem;
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.sport-summary .sport-fee {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-gold);
+}
+
+/* Player Form Styles */
+.players-section {
+  margin: 2rem 0;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+}
+
+.player-input-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.player-number {
+  width: 36px;
+  height: 36px;
+  background: var(--gradient-gold);
+  color: var(--color-navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.player-input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #e0e4e8;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all var(--transition-fast);
+}
+
+.player-input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+}
+
+.captain-section {
+  margin-top: 2rem;
+}
+
+.captain-selection {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.half-width {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Payment Summary Card */
+.payment-summary-card {
+  background: #f8f9fa;
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.payment-summary-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row.total {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--color-gold);
+  border-bottom: none;
+}
+
+.summary-label {
+  color: var(--color-navy-light);
+  font-weight: 600;
+}
+
+.summary-value {
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.summary-row.total .summary-value {
+  color: var(--color-gold-dark);
+  font-size: 1.5rem;
+}
+
+/* Review Section */
+.review-section {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.review-card {
+  background: #f8f9fa;
+  border: 2px solid #e0e4e8;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.review-card.highlight {
+  border-color: var(--color-gold);
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.review-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e0e4e8;
+}
+
+.review-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  gap: 1rem;
+}
+
+.review-item .label {
+  color: var(--color-navy-light);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.review-item .value {
+  color: var(--color-navy);
+  font-weight: 700;
+  text-align: right;
+  word-break: break-word;
+}
+
+.review-item.total .value {
+  color: var(--color-gold-dark);
+  font-size: 1.3rem;
+}
+
+.review-item .badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.review-item .badge.paid {
+  background: #d4edda;
+  color: #155724;
+}
+
+.review-item .badge.pending {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Responsive Updates */
+@media (max-width: 768px) {
+  .progress-steps {
+    padding: 0;
+  }
+
+  .step-label {
+    font-size: 0.75rem;
+  }
+
+  .step.active .step-label {
+    font-size: 0.85rem;
+  }
+
+  .step-number {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  .step-content {
+    padding: 1.5rem;
+  }
+
+  .step-actions {
+    flex-direction: column-reverse;
+  }
+
+  .step-actions .next-btn,
+  .step-actions .back-btn {
+    width: 100%;
+  }
+
+  .sport-summary {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .captain-selection {
+    flex-direction: column;
+  }
+
+  .half-width {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .step-number {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .step-label {
+    font-size: 0.7rem;
+  }
+
+  .step-heading {
+    font-size: 1.4rem;
+  }
+
+  .sport-icon-large {
+    font-size: 2.5rem;
+  }
+
+  .sport-summary .sport-name {
+    font-size: 1.2rem;
+  }
+
+  .sport-summary .sport-fee {
+    font-size: 1.6rem;
+  }
+}
+
+/* ============================================
+   RAZORPAY PAYMENT INTEGRATION STYLES
+   ============================================ */
+
+/* Razorpay Payment Section */
+.razorpay-payment-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.payment-cta {
+  text-align: center;
+}
+
+.payment-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: rgba(102, 126, 234, 0.1);
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-navy);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.note-icon {
+  font-size: 1.5rem;
+}
+
+/* Razorpay Payment Button */
+.razorpay-btn {
+  width: 100%;
+  max-width: 500px;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.razorpay-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.6s,
+    height 0.6s;
+}
+
+.razorpay-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.razorpay-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.razorpay-btn:active {
+  transform: translateY(-1px);
+}
+
+.razorpay-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.razorpay-btn .btn-icon,
+.razorpay-btn .btn-text,
+.razorpay-btn .btn-arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.razorpay-btn .btn-icon {
+  font-size: 1.5rem;
+}
+
+.razorpay-btn .btn-arrow {
+  font-size: 1.3rem;
+  transition: transform var(--transition-base);
+}
+
+.razorpay-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* Payment Result Displays */
+.payment-result {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-md);
+  animation: slideInFromTop 0.4s ease;
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.payment-result.success {
+  border: 2px solid #48bb78;
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+}
+
+.payment-result.failure {
+  border: 2px solid #f56565;
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+}
+
+.result-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.payment-result.success .result-icon {
+  background: #48bb78;
+  color: white;
+}
+
+.payment-result.failure .result-icon {
+  background: #f56565;
+  color: white;
+}
+
+.result-content {
+  flex: 1;
+}
+
+.result-content h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.payment-result.success .result-content h4 {
+  color: #2f855a;
+}
+
+.payment-result.failure .result-content h4 {
+  color: #c53030;
+}
+
+.result-content p {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-navy-light);
+}
+
+.result-content strong {
+  color: var(--color-navy);
+  font-weight: 600;
+  font-family: "Courier New", monospace;
+}
+
+.result-content small {
+  font-size: 0.9rem;
+  color: var(--color-navy-light);
+  font-style: italic;
+}
+
+/* Payment Loading Overlay */
+.payment-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loading-content {
+  text-align: center;
+  color: white;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.loading-content small {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Razorpay Modal Customizations */
+/* These styles will be applied when Razorpay modal opens */
+.razorpay-container {
+  z-index: 10000 !important;
+}
+
+/* Mobile Responsive - Razorpay Styles */
+@media (max-width: 768px) {
+  .razorpay-btn {
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .payment-result {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .result-icon {
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .result-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .payment-note {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .razorpay-btn {
+    font-size: 1rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .razorpay-btn .btn-icon {
+    font-size: 1.2rem;
+  }
+
+  .spinner {
+    width: 50px;
+    height: 50px;
+  }
+
+  .loading-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* ============================================
+   TEST MODE INDICATOR & RECEIPT STYLES
+   ============================================ */
+
+/* Step Heading Wrapper */
+.step-heading-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Test Mode Badge */
+.test-mode-badge {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 10px rgba(245, 87, 108, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 2px 10px rgba(245, 87, 108, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 15px rgba(245, 87, 108, 0.5);
+  }
+}
+
+/* Receipt Download Button */
+.download-receipt-btn {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 3px 12px rgba(17, 153, 142, 0.3);
+}
+
+.download-receipt-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(17, 153, 142, 0.5);
+}
+
+.download-receipt-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .step-heading-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .test-mode-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+

@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bharat College of Engineering Sports Event Registration System - Register for various indoor and outdoor sports events organized by Student Council"
+    />
+    <meta
+      name="keywords"
+      content="BCOE, sports registration, college events, student council"
+    />
+    <meta
+      name="author"
+      content="Student Council - Bharat College of Engineering"
+    />
+
+    <title>BCOE Sports Registration | Student Council</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Fixed Header -->
+    <header class="main-header">
+      <div class="header-container">
+        <div class="header-left">
+          <img src="assets/logo.png" alt="Student Council Logo" class="header-logo" />
+          <div class="header-text">
+            <h1 class="header-title">
+              Student Council Of Bharat College Of Engineering
+            </h1>
+            <p class="header-subtitle">Sports Event Registration Portal</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="registration-counter">
+            <span class="counter-label">Total Registrations</span>
+            <span class="counter-value" id="registration-count">0</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h2 class="hero-title">Register for College Sports Events</h2>
+          <p class="hero-description">
+            Complete your registration in 4 easy steps!
+          </p>
+        </div>
+      </section>
+
+      <!-- Registration Section -->
+      <section class="registration-section">
+        <div class="container">
+          
+          <!-- Progress Steps Indicator -->
+          <div class="progress-steps">
+            <div class="step active" data-step="1">
+              <div class="step-number">1</div>
+              <div class="step-label">Select Sport</div>
+            </div>
+            <div class="step" data-step="2">
+              <div class="step-number">2</div>
+              <div class="step-label">Player Details</div>
+            </div>
+            <div class="step" data-step="3">
+              <div class="step-number">3</div>
+              <div class="step-label">Payment</div>
+            </div>
+            <div class="step" data-step="4">
+              <div class="step-number">4</div>
+              <div class="step-label">Review & Submit</div>
+            </div>
+          </div>
+
+          <!-- STEP 1: Sport Selection -->
+          <div class="step-content" id="step-1">
+            
+            <!-- Gender Selection -->
+            <div class="gender-selection">
+              <h3 class="step-heading">Select Your Category</h3>
+              <div class="gender-tabs">
+                <label class="gender-option">
+                  <input type="radio" name="gender" value="boys" id="gender-boys" checked />
+                  <span class="gender-label">
+                    <span class="gender-icon">🧑‍🎓</span>
+                    <span class="gender-text">Boys Sports</span>
+                  </span>
+                </label>
+                <label class="gender-option">
+                  <input type="radio" name="gender" value="girls" id="gender-girls" />
+                  <span class="gender-label">
+                    <span class="gender-icon">👩‍🎓</span>
+                    <span class="gender-text">Girls Sports</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Sports Selection -->
+            <div class="sports-selection-wrapper">
+              
+              <!-- Outdoor Sports -->
+              <div class="sports-category">
+                <div class="category-header">
+                  <h4 class="category-title">
+                    <span class="category-icon">🏟️</span>
+                    Outdoor Sports
+                  </h4>
+                </div>
+                <div class="sports-list" id="outdoor-sports-list">
+                  <!-- Dynamic content -->
+                </div>
+              </div>
+
+              <!-- Indoor Sports -->
+              <div class="sports-category">
+                <div class="category-header">
+                  <h4 class="category-title">
+                    <span class="category-icon">🏠</span>
+                    Indoor Sports
+                  </h4>
+                </div>
+                <div class="sports-list" id="indoor-sports-list">
+                  <!-- Dynamic content -->
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Selected Sport Display -->
+            <div class="selected-sport-display" id="selected-sport-display" style="display: none;">
+              <div class="sport-summary">
+                <span class="sport-icon-large" id="selected-icon"></span>
+                <div class="sport-info">
+                  <div class="sport-name" id="selected-name"></div>
+                  <div class="sport-meta" id="selected-meta"></div>
+                </div>
+                <div class="sport-fee" id="selected-fee"></div>
+              </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="step-actions">
+              <button type="button" class="next-btn" id="btn-to-step-2" disabled>
+                Next: Player Details →
+              </button>
+            </div>
+
+          </div>
+
+          <!-- STEP 2: Player Details -->
+          <div class="step-content" id="step-2" style="display: none;">
+            
+            <h3 class="step-heading">Enter Player Details</h3>
+
+            <form id="player-details-form" class="player-form">
+              
+              <!-- Team/Participant Name -->
+              <div class="form-group">
+                <label for="team-name">
+                  <span id="team-label">Team/Participant Name</span> <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="team-name"
+                  name="teamName"
+                  placeholder="Enter team or participant name"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              <!-- Contact Number -->
+              <div class="form-group">
+                <label for="contact">
+                  Contact Number <span class="required">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="contact"
+                  name="contact"
+                  placeholder="Enter 10-digit mobile number"
+                  pattern="[0-9]{10}"
+                  maxlength="10"
+                  required
+                />
+                <small class="input-hint">Format: 10 digits (e.g., 9876543210)</small>
+              </div>
+
+              <!-- Dynamic Player Fields -->
+              <div class="players-section">
+                <h4 class="section-subtitle">Player Names</h4>
+                <div id="player-inputs-container">
+                  <!-- Dynamic content -->
+                </div>
+              </div>
+
+              <!-- Captain Selection (for team sports) -->
+              <div class="captain-section" id="captain-section" style="display: none;">
+                <h4 class="section-subtitle">Team Leadership</h4>
+                <div class="captain-selection">
+                  <div class="form-group half-width">
+                    <label for="captain">
+                      Select Captain <span class="required">*</span>
+                    </label>
+                    <select id="captain" name="captain">
+                      <option value="">Choose captain</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group half-width">
+                    <label for="vice-captain">
+                      Select Vice-Captain <span class="required">*</span>
+                    </label>
+                    <select id="vice-captain" name="viceCaptain">
+                      <option value="">Choose vice-captain</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Error Display -->
+              <div id="form-error" class="form-error" style="display: none;"></div>
+
+            </form>
+
+            <!-- Navigation -->
+            <div class="step-actions">
+              <button type="button" class="back-btn" id="btn-back-to-step-1">
+                ← Back
+              </button>
+              <button type="button" class="next-btn" id="btn-to-step-3">
+                Next: Payment →
+              </button>
+            </div>
+
+          </div>
+
+          <!-- STEP 3: Payment -->
+          <div class="step-content" id="step-3" style="display: none;">
+            
+            <div class="step-heading-wrapper">
+              <h3 class="step-heading">💳 Payment Details</h3>
+              <span class="test-mode-badge">🧪 Test Mode</span>
+            </div>
+
+            <!-- Payment Summary -->
+            <div class="payment-summary-card">
+              <h4>Payment Summary</h4>
+              <div class="summary-row">
+                <span class="summary-label">Sport:</span>
+                <span class="summary-value" id="payment-sport-name"></span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Category:</span>
+                <span class="summary-value" id="payment-sport-category"></span>
+              </div>
+              <div class="summary-row total">
+                <span class="summary-label">Entry Fee:</span>
+                <span class="summary-value">₹<span id="payment-fee"></span></span>
+              </div>
+            </div>
+
+            <!-- Razorpay Payment Section -->
+            <div class="razorpay-payment-section">
+              
+              <!-- Payment CTA -->
+              <div class="payment-cta">
+                <p class="payment-note">
+                  <span class="note-icon">🔒</span>
+                  Secured by Razorpay - Pay with UPI, Cards, NetBanking, or Wallets
+                </p>
+                <button type="button" id="razorpay-payment-btn" class="razorpay-btn">
+                  <span class="btn-icon">💳</span>
+                  <span class="btn-text">Pay ₹<span id="razorpay-amount">0</span> Now</span>
+                  <span class="btn-arrow">→</span>
+                </button>
+              </div>
+
+              <!-- Payment Success Display (hidden initially) -->
+              <div id="payment-success-display" class="payment-result success" style="display: none;">
+                <div class="result-icon">✅</div>
+                <div class="result-content">
+                  <h4>Payment Successful!</h4>
+                  <p>Transaction ID: <strong id="razorpay-transaction-id"></strong></p>
+                  <small>Amount Paid: ₹<span id="razorpay-paid-amount"></span></small>
+                </div>
+              </div>
+
+              <!-- Payment Failure Display (hidden initially) -->
+              <div id="payment-failure-display" class="payment-result failure" style="display: none;">
+                <div class="result-icon">❌</div>
+                <div class="result-content">
+                  <h4>Payment Failed</h4>
+                  <p id="payment-failure-message">Payment was cancelled or failed. Please try again.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Payment Loading Overlay (hidden initially) -->
+            <div id="payment-loading" class="payment-loading" style="display: none;">
+              <div class="loading-content">
+                <div class="spinner"></div>
+                <p class="loading-text">Processing payment...</p>
+                <small>Please wait while we verify your payment</small>
+              </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="step-actions">
+              <button type="button" class="back-btn" id="btn-back-to-step-2">
+                ← Back
+              </button>
+              <button type="button" class="next-btn" id="btn-to-step-4">
+                Next: Review →
+              </button>
+            </div>
+
+          </div>
+
+          <!-- STEP 4: Review & Submit -->
+          <div class="step-content" id="step-4" style="display: none;">
+            
+            <h3 class="step-heading">✅ Review Your Registration</h3>
+
+            <div id="review-container" class="review-wrapper">
+              <!-- Dynamic review content -->
+            </div>
+
+            <!-- Navigation -->
+            <div class="step-actions">
+              <button type="button" class="back-btn" id="btn-back-to-step-3">
+                ← Back to Payment
+              </button>
+              <button type="submit" class="submit-btn" id="btn-submit-final">
+                <span class="btn-text">Submit Registration</span>
+                <span class="btn-icon">→</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <!-- Success message will be inserted here -->
+      </div>
+      <button class="modal-close" aria-label="Close modal">×</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <p>
+          &copy; 2026 Student Council - Bharat College of Engineering. All
+          rights reserved.
+        </p>
+        <p class="footer-note">
+          For assistance, contact the Student Council office
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- jsPDF for Receipt Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Razorpay Checkout SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    <!-- Application Scripts -->
+    <script src="js/sportsData.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/razorpay-config.js"></script>
+    <script src="js/receiptGenerator.js"></script>
+    <script src="js/googleSheetsIntegration.js"></script>
+    <script src="js/formHandler.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
