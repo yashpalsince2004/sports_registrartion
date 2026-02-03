@@ -1,238 +1,377 @@
 # 🏆 BCOE Sports Event Registration System
 
-A premium, responsive web application for managing sports event registrations at **Bharat College of Engineering**, organized by the Student Council.
-
-![Project Banner](assets/logo.svg)
-
-## 🎯 Overview
-
-This application provides a modern, user-friendly interface for students to register for various indoor and outdoor sports events. Built with vanilla JavaScript, HTML5, and CSS3, it features a professional navy blue, white, and gold color scheme with smooth animations and comprehensive form validation.
-
-## ✨ Features
-
-### 🎨 Premium Design
-
-- Navy blue (#0A1929), white, and gold (#FFD700) color palette
-- Glassmorphism effects and smooth animations
-- Mobile-first responsive design
-- Google Fonts (Inter) for modern typography
-
-### 🏅 Sports Categories
-
-**Boys Sports:**
-
-- **Outdoor**: Open Cricket (11), Box Cricket (6), Kabaddi (7), Running (1), Football (11), Volleyball (6)
-- **Indoor**: Carrom (2), Chess (1)
-
-**Girls Sports:**
-
-- **Outdoor**: Box Cricket (6), Kabaddi (7), Kho-Kho (9)
-
-### 📝 Dynamic Registration Forms
-
-- Auto-generated based on sport requirements
-- Team name and player inputs
-- Captain/Vice-Captain selection (for team games)
-- Contact number, department, and year fields
-- Real-time form validation
-
-### ✅ Comprehensive Validation
-
-- Required field checking
-- Duplicate player name detection
-- Captain ≠ Vice-Captain enforcement
-- 10-digit contact number format
-- User-friendly error messages
-
-### 💾 Data Persistence
-
-- LocalStorage integration
-- Automatic save on submission
-- Persistent across browser sessions
-- Real-time registration counter
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- No installation or dependencies required!
-
-### Running the Application
-
-1. **Clone or download** the project files
-
-2. **Open in browser**:
-
-   ```bash
-   # Navigate to project directory
-   cd bcoe_sports
-
-   # Open index.html in your default browser
-   open index.html
-   ```
-
-   Or simply double-click `index.html` to open in your browser.
-
-3. **Start registering**!
-   - Select Boys or Girls sports
-   - Filter by Indoor/Outdoor
-   - Click any sport card to register
-
-## 📁 Project Structure
-
-```
-bcoe_sports/
-├── index.html              # Main application page
-├── README.md               # This file
-├── css/
-│   └── styles.css          # Complete design system
-├── js/
-│   ├── sportsData.js       # Sports configurations
-│   ├── storage.js          # LocalStorage management
-│   ├── formHandler.js      # Form generation & validation
-│   └── app.js              # Main application controller
-└── assets/
-    └── logo.svg            # College logo
-```
-
-## 💻 Technology Stack
-
-- **HTML5**: Semantic markup structure
-- **CSS3**: Custom properties, flexbox, grid, animations
-- **JavaScript (ES6+)**: Modular vanilla JavaScript
-- **Google Fonts**: Inter font family
-- **LocalStorage API**: Client-side data persistence
-
-## 🎓 Usage Guide
-
-### For Students
-
-1. **Select Gender Tab**: Click on "Boys Sports" or "Girls Sports"
-2. **Filter Games**: Use "All Games", "Outdoor", or "Indoor" filters
-3. **Choose Sport**: Click on any sport card
-4. **Fill Form**:
-   - Enter team/participant name
-   - Fill in all player names
-   - Select captain and vice-captain (for team games)
-   - Provide contact number
-   - Select department and year
-5. **Submit**: Click "Submit Registration"
-6. **Confirmation**: Success message will appear
-
-### For Administrators
-
-Access registration data via browser Developer Tools:
-
-```javascript
-// Get all registrations
-const registrations = JSON.parse(
-  localStorage.getItem("bcoe_sports_registrations"),
-);
-
-// Get statistics
-const stats = getRegistrationStats();
-console.log(stats);
-```
-
-## 🔒 Data Storage
-
-All registration data is stored in the browser's LocalStorage with the key `bcoe_sports_registrations`. Data format:
-
-```javascript
-{
-  "id": "reg_1234567890_abc123",
-  "sportId": "boys-football",
-  "sportName": "Football",
-  "teamName": "Champions FC",
-  "players": ["Player 1", "Player 2", ...],
-  "captain": "Player 1",
-  "viceCaptain": "Player 2",
-  "contact": "9876543210",
-  "timestamp": "2026-02-02T15:30:00.000Z"
-}
-```
-
-## ☁️ Google Sheets Integration
-
-**NEW!** The application now supports automatic cloud backup to Google Sheets via Google Apps Script.
-
-### Benefits
-
-✅ **Centralized Data**: All registrations in one Google Sheet  
-✅ **Real-time Sync**: Instant updates to the cloud  
-✅ **Zero Cost**: No server or database expenses  
-✅ **Easy Export**: Download as Excel, CSV, or PDF  
-✅ **Dual Storage**: LocalStorage backup for offline capability
-
-### Quick Setup
-
-1. Create a new Google Sheet
-2. Open **Extensions → Apps Script**
-3. Paste the code from `google-apps-script/Code.gs`
-4. Deploy as **Web App** with "Anyone" access
-5. Copy the Web App URL
-6. Update `webAppUrl` in `js/googleSheetsIntegration.js`
-
-**📖 Full setup guide**: See [`GOOGLE_SHEETS_SETUP.md`](file:///Users/yashpal/Documents/Project/bcoe_sports/GOOGLE_SHEETS_SETUP.md)
-
-### What Gets Saved
-
-Every form submission is automatically sent to Google Sheets with:
-
-- Auto-generated timestamp
-- All form fields (team name, players, contact, etc.)
-- Sport metadata (name, gender, category)
-- Formatted in clean, exportable columns
-
-**📊 Technical details**: See [`GOOGLE_SHEETS_INTEGRATION.md`](file:///Users/yashpal/Documents/Project/bcoe_sports/GOOGLE_SHEETS_INTEGRATION.md)
-
-## 📱 Responsive Design
-
-The application is fully responsive and tested on:
-
-- **Desktop** (1920px+): Full layout with grid columns
-- **Tablet** (768-1024px): Adapted grid layout
-- **Mobile** (320-767px): Single column, stacked navigation
-
-## ✅ Validation Rules
-
-1. **All fields required**: Cannot submit with empty fields
-2. **Unique player names**: No duplicate names allowed
-3. **Different captain/vice-captain**: Must select different players
-4. **Contact format**: Must be exactly 10 digits
-5. **Player count**: Automatically enforced per sport
-
-## 🎨 Color Palette
-
-```css
---color-navy: #0a1929 /* Primary brand */ --color-white: #ffffff
-  /* Backgrounds */ --color-gold: #ffd700 /* Accents */;
-```
-
-## 🌐 Browser Support
-
-- ✅ Chrome (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Edge (latest)
-
-## 📝 License
-
-This project is created for **Bharat College of Engineering** Student Council. For educational and institutional use.
-
-## 👥 Credits
-
-**Developed for**: Student Council - Bharat College of Engineering  
-**Purpose**: Sports Event Registration System  
-**Year**: 2026
-
-## 🆘 Support
-
-For issues or questions, contact the Student Council office at Bharat College of Engineering.
+A professional web application for college sports event registration with Razorpay payment integration and automatic receipt generation.
+
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://yashpalsince2004.github.io/sports_registrartion/)
+[![Razorpay](https://img.shields.io/badge/Payment-Razorpay-blue)](https://razorpay.com/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ---
 
-**Made with ❤️ for BCOE Students**
+## 🌟 Features
 
-🎯 **Start registering for sports events today!**
+### ✨ Core Features
+
+- **Multi-Sport Registration**: Support for 18+ sports (Football, Cricket, Basketball, Chess, etc.)
+- **Gender Categories**: Boys, Girls, and Open categories
+- **Team Management**: Individual and team sport support with captain/vice-captain selection
+- **Step-by-Step Flow**: 4-step registration process with progress indicator
+- **Mobile Responsive**: Works seamlessly on desktop, tablet, and mobile devices
+
+### 💳 Payment Integration
+
+- **Razorpay Gateway**: Secure payment processing
+- **Test Mode**: Safe demonstration without real money
+- **Multiple Payment Methods**: UPI, Cards, Net Banking, Wallets
+- **Transparent Pricing**: Fixed entry fees (₹50 - ₹250)
+- **Organizer Absorbs Charges**: No hidden costs for participants
+
+### 📄 Automatic Receipt Generation
+
+- **PDF Receipts**: Auto-generated professional receipts using jsPDF
+- **Instant Download**: Receipts download immediately after payment
+- **Comprehensive Details**: Includes all registration and payment information
+- **Unique Receipt ID**: Trackable receipt identifier for each transaction
+- **College Branding**: Features Student Council logo and college name
+
+### 📊 Data Management
+
+- **Google Sheets Integration**: All registrations stored automatically
+- **Real-time Logging**: Payment status, receipt ID, and participant details
+- **Export Capability**: Easy data export for event management
+- **Receipt Tracking**: Links each registration to its receipt
+
+---
+
+## 🚀 Live Demo
+
+**Website**: [https://yashpalsince2004.github.io/sports_registrartion/](https://yashpalsince2004.github.io/sports_registrartion/)
+
+### Test the Payment Flow:
+
+1. Select any sport and enter details
+2. Use test card: `4111 1111 1111 1111`
+3. CVV: `123`, Expiry: Any future date
+4. Receipt downloads automatically!
+
+---
+
+## 📸 Screenshots
+
+### Homepage
+
+Clean, modern interface with sport cards and filter options.
+
+### Payment Integration
+
+Razorpay checkout with Test Mode indicator and automatic receipt generation.
+
+### Auto-Generated Receipt
+
+Professional PDF receipt with college branding and complete transaction details.
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend
+
+- **HTML5**: Semantic markup
+- **CSS3**: Modern styling with animations and gradients
+- **JavaScript (ES6+)**: Vanilla JS for logic
+- **jsPDF**: PDF receipt generation
+
+### Payment
+
+- **Razorpay Checkout SDK**: Payment gateway integration
+- **Test Mode**: Development-safe payment testing
+
+### Backend/Data
+
+- **Google Apps Script**: Serverless backend
+- **Google Sheets API**: Data persistence
+
+### Assets
+
+- **Student Council Logo**: College branding integration
+
+---
+
+## 📦 Installation & Setup
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/yashpalsince2004/sports_registrartion.git
+cd sports_registrartion
+```
+
+### 2. Configure Razorpay
+
+```bash
+# Copy template
+cp js/razorpay-config.example.js js/razorpay-config.js
+
+# Edit and add your API keys
+nano js/razorpay-config.js
+```
+
+Get your Razorpay keys:
+
+1. Sign up at [razorpay.com](https://razorpay.com)
+2. Get Test API keys from dashboard
+3. See `RAZORPAY_SETUP.md` for detailed instructions
+
+### 3. Configure Google Sheets
+
+1. Create a Google Sheet
+2. Open `google-apps-script/Code.gs`
+3. Copy to Apps Script Editor (Extensions → Apps Script)
+4. Deploy as Web App
+5. Copy deployment URL to `js/googleSheetsIntegration.js`
+
+See `GOOGLE_SHEETS_SETUP.md` for step-by-step guide.
+
+### 4. Open Application
+
+```bash
+# Simply open in browser
+open index.html
+
+# Or use a local server
+python3 -m http.server 8000
+# Visit: http://localhost:8000
+```
+
+---
+
+## 📖 Documentation
+
+| Document                                                     | Description                         |
+| ------------------------------------------------------------ | ----------------------------------- |
+| [`RAZORPAY_SETUP.md`](RAZORPAY_SETUP.md)                     | Complete Razorpay integration guide |
+| [`RAZORPAY_QUICK_START.md`](RAZORPAY_QUICK_START.md)         | 5-minute quick setup                |
+| [`GOOGLE_SHEETS_SETUP.md`](GOOGLE_SHEETS_SETUP.md)           | Google Sheets backend setup         |
+| [`GITHUB_PUSH_INSTRUCTIONS.md`](GITHUB_PUSH_INSTRUCTIONS.md) | Git deployment guide                |
+
+---
+
+## 🎯 Project Structure
+
+```
+sports_registrartion/
+├── index.html                      # Main application
+├── README.md                       # This file
+├── .gitignore                      # Git ignore rules
+│
+├── assets/
+│   ├── logo.png                    # Student Council logo
+│   └── logo.svg                    # Logo (SVG format)
+│
+├── css/
+│   └── styles.css                  # All styling (2700+ lines)
+│
+├── js/
+│   ├── app.js                      # Main application logic
+│   ├── sportsData.js               # Sports configuration
+│   ├── formHandler.js              # Form validation
+│   ├── receiptGenerator.js         # PDF receipt generation
+│   ├── googleSheetsIntegration.js  # Sheets API integration
+│   ├── storage.js                  # Local storage utilities
+│   ├── razorpay-config.example.js  # Config template
+│   └── razorpay-config.js          # Actual config (gitignored)
+│
+├── google-apps-script/
+│   └── Code.gs                     # Backend Apps Script
+│
+└── docs/
+    ├── RAZORPAY_SETUP.md
+    ├── RAZORPAY_QUICK_START.md
+    ├── GOOGLE_SHEETS_SETUP.md
+    └── GITHUB_PUSH_INSTRUCTIONS.md
+```
+
+---
+
+## 🧪 Testing
+
+### Test Mode Payment
+
+The application runs in **Test Mode** by default.
+
+**Test Card Details:**
+
+```
+Card Number: 4111 1111 1111 1111
+CVV:         123
+Expiry:      Any future date (e.g., 12/25)
+Name:        Test User
+```
+
+**Test Scenarios:**
+
+- ✅ Successful Payment: Use card above
+- ❌ Failed Payment: Use `4000 0000 0000 0002`
+- 🔄 Cancel Payment: Press ESC in Razorpay modal
+
+---
+
+## 🎓 Academic Context
+
+This project was developed for:
+
+- **Institution**: Bharat College of Engineering
+- **Organizer**: Student Council
+- **Purpose**: Streamline sports event registrations with automated payment and documentation
+- **Use Case**: College annual sports event management
+
+### Key Achievements
+
+- ✅ Professional payment integration
+- ✅ Automated receipt generation
+- ✅ Complete audit trail (Google Sheets)
+- ✅ Production-ready architecture
+- ✅ Mobile-responsive design
+
+---
+
+## 🔐 Security
+
+### Best Practices Implemented
+
+- **API Key Protection**: `.gitignore` prevents key commits
+- **Template Config**: `razorpay-config.example.js` for safe sharing
+- **Frontend-only Secret**: Key Secret not used in browser
+- **Test Mode Default**: Safe demonstration mode
+- **HTTPS Required**: For live mode deployment
+
+### For Production Use
+
+1. Complete Razorpay KYC verification
+2. Switch to Live API keys
+3. Deploy to HTTPS server
+4. Implement backend signature verification (optional)
+5. Enable Razorpay webhooks (recommended)
+
+---
+
+## 🚀 Deployment
+
+### GitHub Pages (Current)
+
+Auto-deploys from `main` branch.
+**URL**: https://yashpalsince2004.github.io/sports_registrartion/
+
+### Alternative Hosting
+
+- **Netlify**: Drag & drop deployment
+- **Vercel**: Git-based deployment
+- **Firebase Hosting**: Google Cloud integration
+- **Custom Server**: HTTPS required for live payments
+
+---
+
+## 📊 Features Breakdown
+
+| Feature           | Status      | Description                         |
+| ----------------- | ----------- | ----------------------------------- |
+| Sport Selection   | ✅ Complete | 18+ sports with categories          |
+| Player Details    | ✅ Complete | Dynamic forms based on sport type   |
+| Payment Gateway   | ✅ Complete | Razorpay integration with test mode |
+| Auto Receipts     | ✅ Complete | PDF generation with jsPDF           |
+| Google Sheets     | ✅ Complete | Real-time data logging              |
+| Mobile Responsive | ✅ Complete | Works on all devices                |
+| Test Mode         | ✅ Complete | Safe demonstration                  |
+| Live Mode         | ✅ Ready    | Switch config for production        |
+| Email Receipts    | 🔄 Future   | Planned enhancement                 |
+| Multi-language    | 🔄 Future   | Planned enhancement                 |
+
+---
+
+## 🤝 Contributing
+
+While this is an academic project, suggestions and improvements are welcome!
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👥 Authors
+
+**Yashpal**
+
+- GitHub: [@yashpalsince2004](https://github.com/yashpalsince2004)
+- Project: BCOE Sports Registration System
+
+---
+
+## 🙏 Acknowledgments
+
+- **Bharat College of Engineering** - For the opportunity
+- **Student Council** - Project sponsor
+- **Razorpay** - Payment gateway platform
+- **Google Apps Script** - Backend infrastructure
+- **jsPDF** - PDF generation library
+
+---
+
+## 📞 Support
+
+For questions or issues:
+
+1. Check documentation in `/docs` folder
+2. Review `RAZORPAY_SETUP.md` for payment setup
+3. See `GOOGLE_SHEETS_SETUP.md` for backend config
+4. Open an issue on GitHub
+
+---
+
+## 📈 Project Stats
+
+- **Total Lines of Code**: 7,500+
+- **Files**: 18
+- **Languages**: HTML, CSS, JavaScript
+- **Libraries**: jsPDF, Razorpay SDK
+- **Documentation**: 5 comprehensive guides
+
+---
+
+## 🔮 Future Enhancements
+
+- [ ] Email receipt delivery
+- [ ] Payment receipt regeneration
+- [ ] Admin dashboard for organizers
+- [ ] Export registrations as Excel
+- [ ] SMS notifications for participants
+- [ ] Multi-event support
+- [ ] QR code on receipts for verification
+- [ ] Participant history tracking
+
+---
+
+## ⚡ Quick Links
+
+- 🌐 [Live Demo](https://yashpalsince2004.github.io/sports_registrartion/)
+- 📚 [Razorpay Setup](RAZORPAY_SETUP.md)
+- 📊 [Google Sheets Guide](GOOGLE_SHEETS_SETUP.md)
+- 🔧 [Configuration Template](js/razorpay-config.example.js)
+
+---
+
+<div align="center">
+
+**Made with ❤️ for BCOE Student Council**
+
+⭐ Star this repo if you found it helpful!
+
+</div>
