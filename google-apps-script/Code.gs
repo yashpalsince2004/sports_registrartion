@@ -1,8 +1,14 @@
 /**
- * College Sports Event Registration - Google Apps Script (Single-Sport with Payment)
+ * College Sports Event Registration - Google Apps Script (Sport-Specific Sheets)
  *
- * Handles single-sport registration form submissions with payment tracking
- * and stores them in Google Sheets with transaction details.
+ * Handles sport registration form submissions with payment tracking.
+ * Each sport gets its own dedicated sheet (e.g., Cricket, Football, Basketball).
+ *
+ * FEATURES:
+ * - Automatically creates sport-specific sheets
+ * - Separate registration tracking per sport
+ * - Payment and receipt tracking
+ * - Professional formatting and color coding
  *
  * DEPLOYMENT INSTRUCTIONS:
  * 1. Create a new Google Sheet or use existing one
@@ -32,7 +38,7 @@ function doPost(e) {
       return formatResponse(false, "Invalid data format");
     }
 
-    // Append data to sheet
+    // Append data to sport-specific sheet
     const result = appendToSheet(data);
 
     if (result.success) {
@@ -82,56 +88,99 @@ function validateData(data) {
 }
 
 /**
- * Appends registration data to the Google Sheet
+ * Get or create sport-specific sheet
+ * @param {string} sportName - Name of the sport
+ * @returns {Sheet} Google Sheet object
+ */
+function getSportSheet(sportName) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName(sportName);
+
+  // Create sheet if it doesn't exist
+  if (!sheet) {
+    sheet = ss.insertSheet(sportName);
+
+    // Add headers for sport-specific registration
+    const headers = [
+      "Timestamp",
+      "Category",
+      "Gender",
+      "Game Type",
+      "Entry Fee",
+      "Payment Status",
+      "Razorpay Payment ID",
+      "Payment Amount",
+      "Receipt ID",
+      "Team Name",
+      "Player Names",
+      "Captain Name",
+      "Vice-Captain Name",
+      "Contact Number",
+    ];
+
+    sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+
+    // Format header row with sport-specific color
+    const headerColor = getSportColor(sportName);
+    sheet
+      .getRange(1, 1, 1, headers.length)
+      .setFontWeight("bold")
+      .setBackground(headerColor)
+      .setFontColor("#FFFFFF")
+      .setHorizontalAlignment("center")
+      .setFontSize(11);
+
+    // Freeze header row
+    sheet.setFrozenRows(1);
+
+    Logger.log(`Created new sheet for sport: ${sportName}`);
+  }
+
+  return sheet;
+}
+
+/**
+ * Get sport-specific header color
+ * @param {string} sportName - Name of the sport
+ * @returns {string} Hex color code
+ */
+function getSportColor(sportName) {
+  const colors = {
+    Cricket: "#1e3a8a", // Blue
+    Football: "#15803d", // Green
+    Basketball: "#ea580c", // Orange
+    Volleyball: "#7c2d12", // Brown
+    Badminton: "#4c1d95", // Purple
+    "Table Tennis": "#be123c", // Red
+    Tennis: "#0e7490", // Cyan
+    Hockey: "#1e40af", // Dark Blue
+    Chess: "#374151", // Gray
+    Carrom: "#78350f", // Amber
+    Kabaddi: "#991b1b", // Dark Red
+    Kho: "#9f1239", // Rose
+    Athletics: "#065f46", // Emerald
+    Swimming: "#1e40af", // Blue
+    "Weight Lifting": "#991b1b", // Red
+    Boxing: "#7f1d1d", // Dark Red
+    Wrestling: "#78350f", // Brown
+    Yoga: "#059669", // Green
+  };
+
+  return colors[sportName] || "#0A1929"; // Default navy color
+}
+
+/**
+ * Appends registration data to sport-specific sheet
  * @param {Object} data - Registration data
- * @returns {Object} Result object with success status
+ * @returns {Object} Success status and message
  */
 function appendToSheet(data) {
   try {
-    // Get the active spreadsheet and sheet
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    let sheet = ss.getSheetByName("Registrations");
+    const sportName = data.sportName || "Unknown Sport";
+    const sheet = getSportSheet(sportName);
 
-    // Create sheet if it doesn't exist
-    if (!sheet) {
-      sheet = ss.insertSheet("Registrations");
-
-      // Add headers for single-sport with Razorpay payment
-      const headers = [
-        "Timestamp",
-        "Sport Name",
-        "Indoor / Outdoor",
-        "Gender",
-        "Game Type",
-        "Entry Fee",
-        "Payment Status",
-        "Razorpay Payment ID",
-        "Payment Amount",
-        "Receipt ID",
-        "Team Name",
-        "Player Names",
-        "Captain Name",
-        "Vice-Captain Name",
-        "Contact Number",
-      ];
-
-      sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
-
-      // Format header row
-      sheet
-        .getRange(1, 1, 1, headers.length)
-        .setFontWeight("bold")
-        .setBackground("#0A1929")
-        .setFontColor("#FFFFFF")
-        .setHorizontalAlignment("center");
-
-      // Freeze header row
-      sheet.setFrozenRows(1);
-    }
-
-    // Prepare row data
+    // Prepare row data (sport name not needed since it's the sheet name)
     const timestamp = new Date();
-    const sportName = data.sportName || "";
     const category =
       (data.category || "N/A").charAt(0).toUpperCase() +
       (data.category || "N/A").slice(1);
@@ -150,10 +199,9 @@ function appendToSheet(data) {
     const viceCaptain = data.viceCaptain || "N/A";
     const contact = data.contact || "";
 
-    // Create row array
+    // Create row array (14 columns - sport name excluded)
     const rowData = [
       timestamp,
-      sportName,
       category,
       gender,
       gameType,
@@ -175,23 +223,25 @@ function appendToSheet(data) {
     // Format the new row
     const lastRow = sheet.getLastRow();
 
-    // Format entry fee column as currency
-    sheet.getRange(lastRow, 6).setNumberFormat("₹#,##0");
+    // Format entry fee column as currency (column 5 now)
+    sheet.getRange(lastRow, 5).setNumberFormat("₹#,##0");
 
-    // Color code payment status
-    const statusCell = sheet.getRange(lastRow, 7);
-    if (paymentStatus === "Paid") {
+    // Color code payment status (column 6 now)
+    const statusCell = sheet.getRange(lastRow, 6);
+    if (paymentStatus === "Success") {
       statusCell.setBackground("#D4EDDA").setFontColor("#155724");
-    } else {
+    } else if (paymentStatus === "Failed") {
       statusCell.setBackground("#F8D7DA").setFontColor("#721C24");
+    } else {
+      statusCell.setBackground("#FFF3CD").setFontColor("#856404");
     }
 
-    // Auto-resize columns for better readability
-    sheet.autoResizeColumns(1, 15);
+    // Auto-resize columns for better readability (14 columns)
+    sheet.autoResizeColumns(1, 14);
 
     // Add alternating row colors for readability
     if (lastRow % 2 === 0) {
-      sheet.getRange(lastRow, 1, 1, 15).setBackground("#F8F9FA");
+      sheet.getRange(lastRow, 1, 1, 14).setBackground("#F8F9FA");
     }
 
     Logger.log(
@@ -200,7 +250,9 @@ function appendToSheet(data) {
         " (₹" +
         entryFee +
         ") - Razorpay ID: " +
-        razorpayPaymentId,
+        razorpayPaymentId +
+        " to sheet: " +
+        sportName,
     );
 
     return {
