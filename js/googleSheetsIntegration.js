@@ -4,7 +4,7 @@
 const GOOGLE_SHEETS_CONFIG = {
   // Your Google Apps Script Web App URL
   // Get this after deploying the Apps Script (see setup instructions)
-  webAppUrl: 'https://script.google.com/macros/s/AKfycbysakHFaWIHr_V5fE9ErSzhCnndehHD8_wYXIWjMcnLN4TlsIouL7gh2CH8Yi1uUFt2/exec',
+  webAppUrl: 'https://script.google.com/macros/s/AKfycbys17SZDDAgl2ZSk04Cb2N2GjTLNN7e8w33QCrBoaBw_xa6qH1R01Wq-kC9FG0jD7ay/exec',
   
   // Enable/disable Google Sheets integration
   enabled: true,

@@ -772,12 +772,21 @@ async function handleFinalSubmit() {
   try {
     // Prepare registration data
     const registrationData = prepareRegistrationData();
+    console.log('📦 Registration Data Prepared:', registrationData);
     
     // Send to Google Sheets
     if (typeof sendToGoogleSheets === 'function') {
-      await sendToGoogleSheets(registrationData).catch(error => {
-        console.warn('Google Sheets submission failed:', error);
-      });
+      console.log('📊 Sending to Google Sheets...');
+      try {
+        const sheetsResult = await sendToGoogleSheets(registrationData);
+        console.log('✅ Google Sheets Result:', sheetsResult);
+      } catch (error) {
+        console.error('❌ Google Sheets Error:', error);
+        console.error('Error details:', error.message);
+        // Continue anyway - don't block registration
+      }
+    } else {
+      console.warn('⚠️ sendToGoogleSheets function not found');
     }
     
     // Save to localStorage
